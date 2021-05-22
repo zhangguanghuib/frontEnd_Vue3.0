@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo23 Binding V2</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+                checked: true,
+                name:'',
+                message:'',
+                message2:'',
+                message3:'',
+            }
+        },
+
+        template:`
+            <div>{{name}}
+                <input 
+                    type="checkbox" 
+                    v-model="name" 
+                    true-value="JSPang.com" 
+                    false-value="技术胖"/>
+        </div>
+        <div>
+            {{message}} <input v-model.lazy="message"/>
+        </div>
+        <div>
+            {{typeof message2}} <input v-model.number="message2"/>
+        </div>
+        <div>
+            {{message3}} <input v-model.trim="message3"/>
+        </div>
+        `
+    })
+
+    const vm = app.mount("#app");
+</script>
+</html>
